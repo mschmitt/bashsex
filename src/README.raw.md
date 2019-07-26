@@ -26,7 +26,7 @@ arrays and hashes, and I consider it a challenge to make good use of them.
 
 * https://www.gnu.org/software/bash/manual/bash.html#Arrays
 
-### Arrays
+### Arrays (indexed Arrays)
 
 #### Initialization
 
@@ -176,7 +176,16 @@ Month 1 -> January
 $ unset THEHASH["Month 3"]
 ```
 
-## Avoidance of excessive external processes 
+### Showing contents of an indexed or associative array
+
+This uses parameter transformation to create a declare command that could
+be used to recreate the given data.
+
+Example: parameter-transform.sh
+
+* https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion
+
+## Avoidance of external processes 
 
 ### Search and replace
 
