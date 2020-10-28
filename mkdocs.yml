@@ -1,0 +1,15 @@
+site_name: Guide to Bash Scripting Excellence
+theme:
+    name: readthedocs
+    navigation_depth: 3
+plugins:
+    - search:
+        min_search_length: 2
+        lang: 'de'
+nav:
+    - 'Intro': '000_intro.md'
+    - 'Style': '010_style.md'
+    - 'Pipes': '020_pipes.md'
+    - 'Data Structures': '030_datastructures.md'
+    - 'External Processes': '040_external_processes.md'
+    - 'Math': '050_math.md'
