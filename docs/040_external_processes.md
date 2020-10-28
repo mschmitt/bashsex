@@ -45,8 +45,7 @@ done
 
 #### Don't: Pipe through *while* loop.
 
-Piping through a *while* loop creates a subprocess and all variables set
-within the *while* loop are forgotten afterwards.
+Piping through a *while* loop creates a subprocess and all variables set within the *while* loop are forgotten afterwards.
 
 ```bash
 #!/bin/bash
@@ -173,12 +172,12 @@ If you believe you do have to use *wc*, don't waste further resources by parsing
 #!/bin/bash
 
 # UTF-8 multibyte characters
-STRING="ÄÖÜ" 
-CHARACTERS=$(echo -n "$STRING" | wc -m)     # 3 Characters
-BYTES=$(echo -n "$STRING" | wc -c)          # 6 Bytes
+string="ÄÖÜ" 
+characters=$(echo -n "$string" | wc -m)     # 3 Characters
+bytes=$(echo -n "$string" | wc -c)          # 6 Bytes
 
 
-printf "%s (%s characters, %s bytes)\n" "$STRING" "$CHARACTERS" "$BYTES"
+printf "%s (%s characters, %s bytes)\n" "$string" "$characters" "$bytes"
 ```
 
 #### Do: Use *bash* Parameter Expansion.
@@ -190,11 +189,11 @@ according to the *LANG* environment.
 #!/bin/bash
 
 # UTF-8 multibyte characters
-STRING="ÄÖÜ" 
-LANG='C.utf8'     CHARACTERS=${#STRING}     # 3 Characters
-LANG='C'          BYTES=${#STRING}          # 6 Bytes
+string="ÄÖÜ" 
+LANG='C.utf8'     characters=${#string}     # 3 Characters
+LANG='C'          bytes=${#string}          # 6 Bytes
 
-printf "%s (%s characters, %s bytes)\n" "$STRING" "$CHARACTERS" "$BYTES"
+printf "%s (%s characters, %s bytes)\n" "$string" "$characters" "$bytes"
 ```
 
 * [https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion](https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion)
@@ -206,9 +205,9 @@ printf "%s (%s characters, %s bytes)\n" "$STRING" "$CHARACTERS" "$BYTES"
 ```bash
 #!/bin/bash
 
-for I in $(seq 1 10)
+for i in $(seq 1 10)
 do
-	echo "$I"
+	echo "$i"
 done
 ```
 
@@ -219,9 +218,9 @@ done
 ```bash
 #!/bin/bash
 
-for (( I=1 ; I<=10 ; I++ ))
+for (( i=1 ; i<=10 ; i++ ))
 do
-	echo "$I"
+	echo "$i"
 done
 ```
 

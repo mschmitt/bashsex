@@ -10,6 +10,7 @@ nav:
     - 'Intro': '000_intro.md'
     - 'Style': '010_style.md'
     - 'Pipes': '020_pipes.md'
+    - 'Input Magic': '021_input.md'
     - 'Data Structures': '030_datastructures.md'
     - 'External Processes': '040_external_processes.md'
     - 'Math': '050_math.md'
