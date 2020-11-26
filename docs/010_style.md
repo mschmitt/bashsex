@@ -28,5 +28,20 @@ echo "$tmpfile1"
 echo "$tmpfile2"
 ```
 
+## Trapping errors verbosely
+
+```bash
+#!/bin/bash
+set -o errexit
+function errorexit() {
+        trap - ERR
+        printf "Error on line %s\n" "$(caller)"
+        exit 1
+}
+trap errorexit ERR
+```
+
+
+
 * [https://www.gnu.org/software/bash/manual/bash.html#Signals](https://www.gnu.org/software/bash/manual/bash.html#Signals)
 * [https://www.gnu.org/software/bash/manual/bash.html#index-trap](https://www.gnu.org/software/bash/manual/bash.html#index-trap)
