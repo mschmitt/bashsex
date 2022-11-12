@@ -128,38 +128,7 @@ echo $foo $bar
 
 * [https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion](https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion)
 
-### Splitting input
-
-#### Don't: Split input by using external commands such as *awk* or *cut*.
-
-```bash
-#!/bin/bash
-
-while read -r LINE
-do
-	# Uses 2 subprocesses each:
-	servicename=$(echo "$LINE" | cut -f 1)
-	serviceport=$(echo "$LINE" | awk '{print $2}')
-	printf "%s on %s\n" "$serviceport" "$serviceport"
-done < /etc/services
-```
-
-#### Do: Use *read* to split directly into fields of an array and work from there.
-
-```bash
-#!/bin/bash
-
-while read -a fields -r 
-do
-	# Uses no subprocess at all
-	servicename=${fields[0]}
-	serviceport=${fields[1]}
-	printf "%s on %s\n" "$servicename" "$serviceport"
-done < /etc/services
-```
-
-* [https://www.gnu.org/software/bash/manual/bash.html#index-read](https://www.gnu.org/software/bash/manual/bash.html#index-read)
-* [https://www.gnu.org/software/bash/manual/bash.html#Word-Splitting](https://www.gnu.org/software/bash/manual/bash.html#Word-Splitting)
+* https://www.gnu.org/software/bash/manual/bash.html#Word-Splitting)
 
 ### Length of a string
 

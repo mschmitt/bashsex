@@ -1,6 +1,3 @@
-
-
-
 # Math
 
 * [https://www.gnu.org/software/bash/manual/bash.html#Arithmetic-Expansion](https://www.gnu.org/software/bash/manual/bash.html#Arithmetic-Expansion)
