@@ -28,7 +28,7 @@ tail -n 1 # show only last line
 Note how the pipe above globally searches for the string *size=* and then individually for each line makes substitutions around it. We process each line and use *bash* pattern matching and arithmetics to extract the size and calculate the total.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 regex='.*postfix/qmgr.*size=([0-9]+),.*'
 while read line
@@ -48,7 +48,7 @@ echo $total
 In this special case, a lot can be gained from having the extraction handled by *sed* again, but we need to execute it only once, on the global input stream, outside the *while* loop. The obvious downside is that this requires somewhat solid *sed* skills, which the pure *bash* example above does not.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 while read bytes
 do

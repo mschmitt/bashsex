@@ -159,7 +159,7 @@ $ unset thehash["Month 3"]
 This uses parameter transformation to create a *declare* command that could be used to recreate the given data.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare -A thehash
 thehash=(["Month 1"]="January" ["Month 2"]="February")

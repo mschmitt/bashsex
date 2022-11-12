@@ -18,7 +18,7 @@ frq qb rvhfzbq grzcbe vapvqvqhag hg ynober rg qbyber zntan nyvdhn.
 Contrary to popular belief, *heredocs* don't need to be outdented within blocks, by prefixing the End pattern with a -.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 if true
 then
@@ -89,7 +89,7 @@ $ diff /etc/services <(ssh 192.168.1.35 cat /etc/services)
 #### Don't: Split input by using external commands such as *awk* or *cut*.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 while read -r LINE
 do
@@ -103,7 +103,7 @@ done < /etc/services
 #### Do: Use *read* to split directly into fields of an array and work from there.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 while read -a fields -r 
 do

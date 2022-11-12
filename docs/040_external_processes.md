@@ -7,7 +7,7 @@
 I've done this so many times, it's embarrassing.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 for word in "foo" "bar" "baz"
 do
@@ -24,7 +24,7 @@ done
 #### Do: Use built-in regex matching and/or *bash* Parameter Expansion.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 for word in "foo" "bar" "baz"
 do
@@ -48,7 +48,7 @@ done
 Piping through a *while* loop creates a subprocess and all variables set within the *while* loop are forgotten afterwards.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Count the lines in some random input
 
@@ -68,7 +68,7 @@ echo "Total lines: $lines"
 *<(foo)* in places where one would normally read from a file replaces the file with the output from process *foo*. An additional *<* for input redirection is still required, just like when reading from a file.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Count the lines in some random input
 
@@ -90,7 +90,7 @@ echo "Total lines: $lines"
 #### Don't: Execute *awk*, *sed*, *tr* repeatedly within a loop.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Substitute something in some random input
 while read -r input
@@ -104,7 +104,7 @@ done < <(dd if=/dev/urandom count=1000)
 Execution speed will be significantly higher.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Substitute something in some random input
 while read -r input
@@ -116,7 +116,7 @@ done < <(dd if=/dev/urandom count=1000 | sed 's/foo/bar/g')
 #### See also: Bash native pattern replacement.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Native bash pattern replacement
 
@@ -138,7 +138,7 @@ If you believe you do have to use *wc*, don't waste further resources by parsing
 *wc*'s native option for the byte or character count. I've seen (and DONE!) this countless times and I have no idea if this ever, in any long-forgotten era, was the reasonable thing to do.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # UTF-8 multibyte characters
 string="ÄÖÜ" 
@@ -155,7 +155,7 @@ It returns the length in characters, with multi-byte characters counted
 according to the *LANG* environment.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # UTF-8 multibyte characters
 string="ÄÖÜ" 
@@ -172,7 +172,7 @@ printf "%s (%s characters, %s bytes)\n" "$string" "$characters" "$bytes"
 #### Don't: Use *seq*.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 for i in $(seq 1 10)
 do
@@ -185,7 +185,7 @@ done
 ...just like you would everywhere else. Don't expect any performance gain, though.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 for (( i=1 ; i<=10 ; i++ ))
 do
@@ -202,7 +202,7 @@ Check out the *bash* loadables in your OS distribution. Use of these comes at th
 #### Without Loadables
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 while read -r FILE
 do
@@ -216,7 +216,7 @@ done < <(find /usr/lib -type f)
 #### With Loadables
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Enable loadable bash extensions
 BASH_LOADABLES_PATH=/usr/lib/bash:/usr/local/lib/bash
