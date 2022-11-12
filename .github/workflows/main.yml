@@ -20,4 +20,4 @@ jobs:
           SSH_USER: martin
           SSH_HOST: team-frickel.de
           RSYNC_LOCAL_PATH: 'site/'
-          RSYNC_OPTIONS: ''
+          RSYNC_OPTIONS: ' '
