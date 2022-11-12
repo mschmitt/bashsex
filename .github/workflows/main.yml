@@ -1,0 +1,23 @@
+name: build and upload site
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - run: pip3 install mkdocs
+      - run: make
+      - uses: mschmitt/rsync-with-ssh-agent@v1
+        with:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
+          SSH_USER: martin
+          SSH_HOST: team-frickel.de
+          RSYNC_LOCAL_PATH: 'site/'
+          RSYNC_OPTIONS: '--dry-run'
